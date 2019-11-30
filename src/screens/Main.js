@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from "./Home";
 import { Route, Switch } from 'react-router-dom';
+import Home from './Home';
 
 const Main = () => {
-  return (
+	return (
     <Switch>
       <Route exact path='/' component={Home} />
     </Switch>

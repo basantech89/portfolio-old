@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Terminal from 'react-bash';
 import '../assets/styles/screens/_home.scss'
+import Terminal from "../react-bash";
+import DropDown from "../components/DropDown";
 
 const history = [
   { value: 'Type `help` to begin' },
@@ -18,25 +19,7 @@ const structure = {
   'README.md': { content: 'Hello There' },
 };
 
-const Home = (props) => {
-  const { primary } = props;
-  const chars = ['h', 'a', 'c', 'k', '0', '~', '!', '#', '$'];
-  const getRandomChar = () => chars[Math.floor(Math.random() * chars.length)];
-  const [char, setChar] = useState(getRandomChar());
-  const showMsg = () => 'Hello World';
-
-  useEffect(() => {
-    if (primary || Math.random() > 0.95) {
-      makeSymbolDynamic();
-    }
-  });
-
-  const makeSymbolDynamic = () => {
-    setInterval(() => {
-      setChar(getRandomChar(), 500);
-    });
-  };
-
+const Home = () => {
   const extensions = {
     sudo: {
       exec: ({ structure, history, cwd }) => {
@@ -48,12 +31,13 @@ const Home = (props) => {
   };
 
   return (
-    <div className="container" style={{ fontSize: 20, lineHeight: 1.9 }}>
+    <div className="container" style={{ fontSize: 18, lineHeight: 1.9 }}>
+      {/* <DropDown style={{ display: 'flex', justifyContent: 'center' }} /> */}
       <Terminal history={history}
-      structure={structure} 
-      extensions={extensions} 
-      theme={Terminal.Themes.DARK} 
-      prefix="Basant@HOME" />
+                structure={structure}
+                extensions={extensions}
+                theme={Terminal.Themes.DARK}
+                prefix="Basant@HOME" />
     </div>
   );
 };

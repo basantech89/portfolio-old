@@ -1,0 +1,52 @@
+.bash {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inconsolata', monospace;
+  font-size: 16px;
+  font-weight: 400;
+  height: 100%;
+  overflow: hidden;
+  text-align: left;
+}
+
+.header {
+  padding: 5px 10px 0;
+}
+
+@mixin circle {
+  border-radius: 50%;
+  display: inline-block;
+  height: 15px;
+  margin-right: 5px;
+  width: 15px;
+}
+
+#red {
+  @include circle;
+  background-color: #bf616a;
+}
+
+#yellow {
+  @include circle;
+  background-color: #ebcb8b;
+}
+
+#green {
+  @include circle;
+  background-color: #a3be8c;
+}
+
+form {
+  display: flex;
+  input {
+    background: none;
+    border: none;
+    color: inherit;
+    flex-grow: 1;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none !important;
+    padding: 0;
+  }
+}
