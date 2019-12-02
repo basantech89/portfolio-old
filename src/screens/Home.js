@@ -11,14 +11,40 @@ const cmdHistory = [
 ];
 const fileStructure = {
 	projects: {
-		janelaaj: { content: 'site: janelaaj.com' },
-		file2: { content: 'The is the content for file2 in the <public> directory.' },
-		file3: { content: 'The is the content for file3 in the <public> directory.' },
+		janelaaj: { content: 'Site: janelaaj.com\nFrontend: Reactjs with Redux\nBackend: Express Server\nRole: - I developed all the frontend code, modified the ' +
+				'Nodejs backend to make use of express server and migrated it to Google App Engine, also migrated MySQL servers to Google SQL Instance' },
+		'confusion Restaurant': { content: 'github - https://github.com/basantech89/code_monk/tree/master/web_dev/HKU_FSWDRS/C2_React/confusion\n' +
+				'Frontend: Reactjs with redux\nBackend: Nodejs, Express Server\nDatabase: MongoDB and Google Firebase' },
+		Asteroids: { content: 'link - http://www.codeskulptor.org/#user45_ZjArGzFXp0_0.py\n' +
+				'Description: It\'s a game written in Python, navigate to link, click on the play button and enjoy'},
+		BlackJack: { content: 'link - http://www.codeskulptor.org/#user41_PF9mV1IXs9_3.py\n' +
+				'Description: It\'s a classic casino game written in Python, navigate to link, click on the play button and enjoy'},
+		Memory: { content: 'link - http://www.codeskulptor.org/#user41_iBmhXjsS2W_0.py\n' +
+				'Description: It\'s a memory game written in Python, navigate to link, click on the play button and enjoy'},
+		Pong: { content: 'link - http://www.codeskulptor.org/#user41_V334p6Ils0_3.py\n' +
+				'Description: It\'s the classic ping pong game written in Python, navigate to link, click on the play button and enjoy'},
+		'Other Python Projects': { content: 'link - https://github.com/basantech89/code_monk/tree/master/python\n' +
+				'Description: Other python projects, feel free to visit'},
+		'Java Projects': { content: 'link - https://github.com/basantech89/code_monk/tree/master/java\n' +
+				'Description: Other python projects, feel free to visit'},
 	},
 	skills: {
-		Javascript: { content: 'Content for this file' },
+		Javascript: { content: 'Intermediate' },
+		FrontEnd: { content: 'ReactJS, ReactNative, Reactstrap, Bootstrap' },
+		BackEnd: { content: 'Nodejs, Express Server, Loopback Server' },
+		Database: { content: 'MongoDb, MySQL' },
+		Linux: { content: 'RHCSA, RHCE, Debian, Arch Linux, Red Hat' },
+		CyberSecurity: { content: 'CEH, Ethical Hacker, Penetration Tester' },
+		Cloud: { content: 'Google Cloud' },
+		Misc: { content: 'Adobe Photoshop' },
 	},
-	'README.md': { content: 'Hello There' },
+	certifications: {
+		Java: { content: 'Java Programming: Solving Problems With Software by Duke University\n' +
+				'Verify - https://www.coursera.org/account/accomplishments/certificate/JUUXDF2NHT63' },
+		'Responsive Design': { content: 'Advanced Styling with Responsive Design by University of Michigan\n' +
+				'Verify - https://www.coursera.org/account/accomplishments/certificate/NZ2LSJPHZSH2' },
+		'Trainer Certificates': { content: 'CyberSecurity trainer certificate by EICT Academy, IIT Guwahati' },
+	},
 };
 
 const extensions = {
