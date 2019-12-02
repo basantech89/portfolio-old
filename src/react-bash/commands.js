@@ -7,8 +7,7 @@ export const help = {
     exec: (state) => {
         return Object.assign({}, state, {
             history: state.history.concat(
-                { value: 'React-bash:' },
-                { value: 'These shell commands are defined internally.  Type \'help\' to see this list.' },
+                { value: 'Following commands are available.' },
                 ...helpCommands.map(value => ({ value }))
             ),
         });
@@ -93,8 +92,8 @@ export const mkdir = {
 export const cd = {
     exec: (state, { args }) => {
         const path = args[0];
-        if (!path || path === '/') {
-            return Object.assign({}, state, { cwd: '' });
+        if (!path || path.startsWith('/')) {
+            return Object.assign({}, state, { cwd: path.split('/')[1] });
         }
 
         const fullPath = Util.extractPath(path, state.cwd);

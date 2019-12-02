@@ -27,6 +27,7 @@ export default class Terminal extends Component {
 		};
 		this.handleKeyDown = this.handleKeyDown.bind(this);
 		this.handleKeyUp = this.handleKeyUp.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	componentDidMount() {
@@ -123,11 +124,12 @@ export default class Terminal extends Component {
 		}
 	}
 
-	handleSubmit(evt) {
+	handleSubmit(evt, input) {
 		evt.preventDefault();
-
 		// Execute command
-		const input = evt.target[0].value;
+		if (!input) {
+			input = evt.target[0].value;
+		}
 		const newState = this.Bash.execute(input, this.state);
 		this.setState(newState);
 		this.refs.input.value = '';
@@ -159,8 +161,7 @@ export default class Terminal extends Component {
 					{history.map(this.renderHistoryItem(style))}
 					<form onSubmit={evt => this.handleSubmit(evt)}>
 						<DropDown style={{ display: 'flex', justifyContent: 'center' }}
-						          cwd={cwd} />
-						{/* <span style={style.prefix}>{`${prefix} ~${cwd} $`}</span> */}
+						          cwd={cwd} handleClick={this.handleSubmit} />
 						<input
 							autoComplete="off"
 							onKeyDown={this.handleKeyDown}

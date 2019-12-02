@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import '../assets/styles/components/_dropdown.scss';
 
 export default class DropDown extends Component {
-  state = {
-    display: false,
-  };
+  state = { display: false };
   showDropdown = event => {
     event.preventDefault();
     this.setState({ display: true });
@@ -14,14 +12,19 @@ export default class DropDown extends Component {
     event.preventDefault();
     this.setState({ display: false });
     document.removeEventListener('click', this.hideDropdown);
-  }
+  };
   render() {
     const ShowDropdown = () => {
       if (this.state.display) {
         return (
           <ul>
-            <li> <a className="active" href="#projects"> Projects </a> </li> 
-            <li> <a href="#skills"> Skills </a> </li> 
+            <li> <a className="active" onClick={(event) => this.props.handleClick(event, 'cd /')}> Home </a> </li>
+            <li> <a onClick={(event) => {
+              this.props.handleClick(event, 'cd /projects');
+            }}> Projects </a> </li>
+            <li> <a onClick={(event) => {
+              this.props.handleClick(event, 'cd /skills');
+            }}> Skills </a> </li>
           </ul>
         )
       } else {
@@ -30,7 +33,7 @@ export default class DropDown extends Component {
     };
     return (
       <div className="dropdown">
-        <div className="button" onClick={this.showDropdown}> Basant@Machine
+        <div className="button" onClick={this.showDropdown}> Basant@Soni
           <svg aria-hidden="true" focusable="false"
                className="icon" role="img" xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 320 512">

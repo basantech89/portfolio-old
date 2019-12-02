@@ -1,7 +1,6 @@
-$prompt-text-color: #385BFB;
+$prompt-text-color: rgba(0, 252, 4, 0.8);
 
 .dropdown {
-  //border: 2px solid red;
   margin-right: 30px;
   position: relative;
   display: inline-block;
@@ -12,12 +11,11 @@ ul {
   padding: 0;
   top:45px;
   width: 200px;
-  background-color: white;
+  background-color: #000;
   font-weight:bold;
   position: absolute;
-  font-size: 20px;
-
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  font-size: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   z-index: 1;
 }
 li a {
@@ -26,14 +24,13 @@ li a {
 }
 li {
   padding: 8px 16px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #000;
 }
 li:last-child {
   border-bottom: none;
 }
 li:hover {
-  background-color: #e5e5e5;
-  color: white;
+  background-color: darkgreen;
 }
 .button {
   background-color:#000 ;
@@ -52,15 +49,3 @@ li:hover {
   width: 20px;
   height: 20px;
 }
-
-/*
-.button:before{
-  content:"";
-  position:absolute;
-  width:0;
-  height:0;
-  border: 10px solid;
-  border-color: $prompt-text-color transparent transparent transparent;
-  right:6px;
-  top:18px;
-}*/

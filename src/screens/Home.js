@@ -1,45 +1,70 @@
-import React, { useState, useEffect } from 'react';
-import '../assets/styles/screens/_home.scss'
-import Terminal from "../react-bash";
-import DropDown from "../components/DropDown";
+import React from 'react';
+import Modal from "../components/Modal";
+import Terminal from '../react-bash';
+import '../assets/styles/screens/_home.scss';
+import projectIcon from '../assets/icons/laptop-code-solid.svg';
+import skillIcon from '../assets/icons/skull-solid.svg';
+import contactIcon from '../assets/icons/user-secret-solid.svg';
 
-const history = [
-  { value: 'Type `help` to begin' },
+const cmdHistory = [
+	{ value: 'Type `help` to begin, clear to clear the screen' },
 ];
-const structure = {
-  public: {
-    file1: { content: 'The is the content for file1 in the <public> directory.' },
-    file2: { content: 'The is the content for file2 in the <public> directory.' },
-    file3: { content: 'The is the content for file3 in the <public> directory.' },
-    projects: {
-      'Astroids': { content: 'Content for this file' },
-    },
-    '.hiddenFile': { content: 'its a hidden file' }
-  },
-  'README.md': { content: 'Hello There' },
+const fileStructure = {
+	projects: {
+		janelaaj: { content: 'site: janelaaj.com' },
+		file2: { content: 'The is the content for file2 in the <public> directory.' },
+		file3: { content: 'The is the content for file3 in the <public> directory.' },
+	},
+	skills: {
+		Javascript: { content: 'Content for this file' },
+	},
+	'README.md': { content: 'Hello There' },
 };
 
-const Home = () => {
-  const extensions = {
-    sudo: {
-      exec: ({ structure, history, cwd }) => {
-        return { structure, cwd,
-          history: history.concat({ value: 'Nice try...' }),
-        };
-      },
-    },
-  };
+const extensions = {
+	sudo: {
+		exec: ({ structure, history, cwd }) => ({
+			structure,
+			cwd,
+			history: history.concat({ value: 'Nice try...' }),
+		}),
+	},
+};
 
-  return (
-    <div className="container" style={{ fontSize: 18, lineHeight: 1.9 }}>
-      {/* <DropDown style={{ display: 'flex', justifyContent: 'center' }} /> */}
-      <Terminal history={history}
-                structure={structure}
-                extensions={extensions}
-                theme={Terminal.Themes.DARK}
-                prefix="Basant@HOME" />
-    </div>
-  );
+class Home extends React.Component {
+	state = { showModal: false };
+
+	toggleModal = () => this.setState({ showModal: !this.state.showModal });
+
+	render() {
+		return (
+			<div className="container" style={{ fontSize: 18, lineHeight: 1.9 }}>
+				<div className="stars" />
+				<div className="twinkling" />
+				<Modal showModal={this.state.showModal} />
+				<Terminal
+					history={cmdHistory}
+					structure={fileStructure}
+					extensions={extensions}
+					theme={Terminal.Themes.DARK}
+				/>
+				<div className="icons">
+					<div>
+						<img id="projects" src={projectIcon} alt="project-icon" /> <br/>
+						<label className="icon-labels" htmlFor="projects"> Projects </label>
+					</div>
+					<div onClick={this.toggleModal}>
+						<img id="skills" src={skillIcon} alt="skills-icon" /> <br/>
+						<label className="icon-labels" htmlFor="skills"> Skills </label>
+					</div>
+					<div>
+						<img id="contact" src={contactIcon} alt="contact-icon" /> <br/>
+						<label className="icon-labels" htmlFor="contact"> Contact </label>
+					</div>
+				</div>
+			</div>
+		);
+	}
 };
 
 export default Home;

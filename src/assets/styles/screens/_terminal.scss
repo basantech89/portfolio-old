@@ -1,17 +1,37 @@
+@import "../abstracts/all";
+
+$border-color: #383838;
+
 .bash {
+  height: 60%;
+  position: absolute;
+  top: 120px;
+  left: 40px;
+  border: 2px solid $border-color;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   font-family: 'Inconsolata', monospace;
   font-size: 16px;
   font-weight: 400;
-  height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   text-align: left;
+  
+  @media all and (min-width: $xl) {
+    width: 40%;
+  }
+  @media all and (max-width: $xl - 1) and (min-width: $lg) {
+    width: 50%;
+  }
+  @media all and (max-width: $lg - 1) {
+    top: 60px;
+    width: 80%;
+  }
 }
 
 .header {
-  padding: 5px 10px 0;
+  border: 2px solid $border-color;
+  padding: 0 10px 0;
 }
 
 @mixin circle {
