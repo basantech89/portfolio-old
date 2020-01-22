@@ -3,10 +3,11 @@
 $border-color: #383838;
 
 .bash {
-  height: 60%;
+  height: 85vh;
+  width: 80vw;
   position: absolute;
-  top: 120px;
-  left: 40px;
+  top: 50px;
+  left: 120px;
   border: 2px solid $border-color;
   border-radius: 5px;
   display: flex;
@@ -17,7 +18,7 @@ $border-color: #383838;
   overflow-x: hidden;
   text-align: left;
   
-  @media all and (min-width: $xl) {
+/*  @media all and (min-width: $xl) {
     width: 40%;
   }
   @media all and (max-width: $xl - 1) and (min-width: $lg) {
@@ -26,7 +27,7 @@ $border-color: #383838;
   @media all and (max-width: $lg - 1) {
     top: 60px;
     width: 80%;
-  }
+  }*/
 }
 
 .header {
