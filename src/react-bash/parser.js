@@ -7,28 +7,30 @@
  * @returns {Object} the parsed command/arg dataf84t56y78ju7y6f
  */
 export function parseInput(input) {
-    const tokens = input.split(/ +/);
-    const name = tokens.shift();
-    const flags = {};
-    const args = {};
-    let anonArgPos = 0;
+  const tokens = input.split(/ +/);
+  const name = tokens.shift();
+  const flags = {};
+  const args = {};
+  let anonArgPos = 0;
 
-    while (tokens.length > 0) {
-        const token = tokens.shift();
-        if (token[0] === '-') {
-            if (token[1] === '-') {
-                const next = tokens.shift();
-                args[token.slice(2)] = next;
-            } else {
-                token.slice(1).split('').forEach(flag => {
-                    flags[flag] = true;
-                });
-            }
-        } else {
-            args[anonArgPos++] = token;
-        }
+  while (tokens.length > 0) {
+    const token = tokens.shift();
+    if (token[0] === '-') {
+      if (token[1] === '-') {
+        const next = tokens.shift();
+        args[token.slice(2)] = next;
+      } else {
+        token.slice(1).split('').forEach((flag) => {
+          flags[flag] = true;
+        });
+      }
+    } else {
+      args[anonArgPos++] = token;
     }
-    return { name, flags, input, args };
+  }
+  return {
+    name, flags, input, args,
+  };
 }
 
 /*
@@ -55,6 +57,6 @@ export function parseInput(input) {
  * ]
  */
 export function parse(inputs) {
-    return inputs.trim().split(/ *&& */)
-        .map(deps => deps.split(/ *; */).map(parseInput));
+  return inputs.trim().split(/ *&& */)
+    .map((deps) => deps.split(/ *; */).map(parseInput));
 }

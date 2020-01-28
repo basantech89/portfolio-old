@@ -5,6 +5,7 @@ import * as BaseCommands from './commands';
 import Bash from './bash';
 import Styles from './styles';
 import DropDown from '../components/DropDown';
+import '../assets/styles/screens/_terminal.scss';
 
 const CTRL_CHAR_CODE = 17;
 const L_CHAR_CODE = 76;
@@ -156,6 +157,9 @@ export default class Terminal extends Component {
 					<span id="red" onClick={onClose}/>
 					<span id="yellow" onClick={onMinimize}/>
 					<span id="green" onClick={onExpand}/>
+					<a href="https://basant.netlify.com" target="_blank" className="button" rel="noreferrer noopener">
+						Graphical Portfolio
+					</a>
 				</div>
 				<div style={style.body} onClick={() => this.refs.input.focus()}>
 					{history.map(this.renderHistoryItem(style))}

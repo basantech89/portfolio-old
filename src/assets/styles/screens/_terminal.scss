@@ -7,7 +7,7 @@ $border-color: #383838;
   width: 80vw;
   position: absolute;
   top: 50px;
-  left: 120px;
+  left: 10vw;
   border: 2px solid $border-color;
   border-radius: 5px;
   display: flex;
@@ -17,17 +17,6 @@ $border-color: #383838;
   font-weight: 400;
   overflow-x: hidden;
   text-align: left;
-  
-/*  @media all and (min-width: $xl) {
-    width: 40%;
-  }
-  @media all and (max-width: $xl - 1) and (min-width: $lg) {
-    width: 50%;
-  }
-  @media all and (max-width: $lg - 1) {
-    top: 60px;
-    width: 80%;
-  }*/
 }
 
 .header {
@@ -70,4 +59,8 @@ form {
     outline: none !important;
     padding: 0;
   }
+}
+
+.button {
+  float: right;
 }
